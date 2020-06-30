@@ -20,6 +20,16 @@ class Dashboard extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+                $this->load->view('templates/header.php');
+		$this->load->view('dashboard/index.php');
+                $this->load->view('templates/footer.php');
+	}
+        
+        public function school()
+	{
+              
+                $this->load->view('templates/header.php');
+		$this->load->view('dashboard/school/school.php');
+                $this->load->view('templates/footer.php');
 	}
 }
