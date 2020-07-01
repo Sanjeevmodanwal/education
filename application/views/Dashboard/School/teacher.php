@@ -9,8 +9,13 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group ">
-                                    <label>Name</label>
-                                    <input type="text" name="username" placeholder="Name" class="form-control" id="shool_name">
+                                    <label>School Name</label>
+									<select name="username" class="form-control" id="shool_name">
+										<option value="">Select School Name</option>
+										<?php foreach ($school_list as $rowSchool){ ?>
+										<option value="<?php echo $rowSchool->id;?>"><?php echo $rowSchool->school_name;?></option>
+										<?php } ?>
+									</select>
                                 </div>
                             </div>
                             <div class="col-md-4">

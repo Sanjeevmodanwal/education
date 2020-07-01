@@ -19,6 +19,15 @@ class School_model extends CI_Model {
             'join_date' => date('Y-m-d')
         );
         $this->db->insert('users', $data);
+		$insert_id = $this->db->insert_id();
+		
+		$data = array(
+            'school_id' => $data['username'],
+            'teacher_id' => $insert_id,
+			'role'=>$data['role']
+        );		
+		$this->db->insert('teacher', $data);
+		
         if ($this->db->affected_rows() > 0) {
            return true;
         } else {
@@ -27,9 +36,10 @@ class School_model extends CI_Model {
     }
     
     public function get_school(){
-        
-    }
-    
-   
+		$users=$_SESSION['user'];
+        $this->db->where('user_id',$users->id);
+        $query = $this->db->get('school');
+		return $query->result();
+    }  
 
 }

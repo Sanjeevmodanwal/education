@@ -27,12 +27,10 @@ class Dashboard extends CI_Controller {
         $this->load->view('templates/footer.php');
     }
     
-    public function teacher() {
-//        $this->db->where('user_id', 1);
-//        $query = $this->db->get('school');
-//        $data['schools'] = $query->result_array();
+    public function teacher() {		
+		$result['school_list']=$this->School_model->get_school();
         $this->load->view('templates/header.php');
-        $this->load->view('dashboard/school/teacher.php');
+        $this->load->view('dashboard/school/teacher.php', $result);
         $this->load->view('templates/footer.php');
     }
     
