@@ -30,8 +30,15 @@ class Auth extends CI_Controller {
         $this->db->where('password', $pass);
         $result = $this->db->get('users')->row();
         if ($result) {
-            $_SESSION['user']=$result;
-            $res = array('status' => 200);
+			if($result->role == 1){
+				$_SESSION['user']=$result;
+				$res = array('status' => 200);
+			}
+			if($result->role == 3){
+				$_SESSION['user']=$result;
+				$res = array('status' => 201);
+			}
+            
         } else {
             $res = array('status' => 500, 'msg' => 'email or password are not matched');
         }

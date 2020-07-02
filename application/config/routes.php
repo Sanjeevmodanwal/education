@@ -52,6 +52,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['login'] = 'welcome/login';
 $route['register'] = 'welcome/register';
+
+$route['dashboard_sadmin'] = 'dashboard_sadmin/index';
+$route['lists'] = 'dashboard_sadmin/school/lists';
+$route['teacher'] = 'dashboard_sadmin/teacher';
+$route['school'] = 'dashboard_sadmin/school';
+$route['total_teacher'] = 'dashboard_sadmin/total_teacher';
+
 $route['dashbaord'] = 'dashbaord/index';
 $route['school'] = 'dashbaord/school';
 $route['teacher'] = 'dashbaord/teacher';

@@ -183,16 +183,15 @@
 
                        <!-- <li class="nav-heading"><span>Main</span></li>-->
 
-                        <li class="nav-item active"><a class="nav-link" href="<?php echo base_url('dashboard');?>"><i class="fa fa-home"></i> <span class="toggle-none">Dashboard </a></li>						
+                        <li class="nav-item active"><a class="nav-link" href="<?php echo base_url('dashboard_sadmin');?>"><i class="fa fa-home"></i> <span class="toggle-none">Dashboard </a></li>						
                        
 
                         <li class="nav-item">
                             <a class="nav-link" href="javascript: void(0);" aria-expanded="true"><i class="fa fa-envelope-o"></i> <span class="toggle-none">Super-Admin<span class="fa arrow"></span></span></a>
                             <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="true">
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard/school');?>">Create School Name</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard/teacher');?>">Create Teacher</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard/student');?>">Create Student</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard/class');?>">Create Class</a></li>
+                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard_sadmin/school');?>">Add New School</a></li>
+                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard_sadmin/lists');?>">Total School</a></li>
+                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard_sadmin/total_teacher');?>">Total Teacher</a></li>
                             </ul>
                         </li>
                       
