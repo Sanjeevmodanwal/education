@@ -9,6 +9,22 @@
                             <label>School Name</label>
                             <input type="text" name="school_name" placeholder="Name" class="form-control" id="shool_name">
                         </div>
+						
+						
+						 <div class="form-group">
+                            <label>Session Year</label>
+                            <select name="school_session" class="form-control" id="shool_name">
+								<option value="">Select Option</option>
+								<option value="2020-21">2020-21</option>
+								<option value="2021-22">2021-22</option>
+								<option value="2022-23">2022-23</option>
+								<option value="2023-24">2023-24</option>
+								<option value="2024-25">2024-25</option>
+								<option value="2025-26">2025-26</option>
+								<option value="2026-27">2026-27</option>
+								<option value="2027-28">2027-28</option>
+							</select>
+                        </div>
 
                         <div class="form-group ">
                             <label>Upload image</label>

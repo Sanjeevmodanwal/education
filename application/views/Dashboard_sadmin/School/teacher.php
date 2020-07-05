@@ -13,19 +13,19 @@ $getSchoolId = $this->input->get('sid', TRUE);
                             <div class="col-md-4">
                                 <div class="form-group ">
                                     <label>Teacher Name</label>
-									<input type="text" name="username" placeholder="Name" class="form-control" id="shool_name">
+									<input type="text" name="username" placeholder="Name" class="form-control" id="teach_name">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group ">
                                     <label>Teacher Email</label>
-                                    <input type="text" name="email" placeholder="Email" class="form-control" id="shool_name">
+                                    <input type="text" name="email" placeholder="Email" class="form-control" id="teach_name">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group ">
                                     <label>Teacher Password</label>
-                                    <input type="text" name="password" placeholder="Password" class="form-control" id="shool_name">
+                                    <input type="text" name="password" placeholder="Password" class="form-control" id="teach_name">
                                 </div>
                             </div>
 
@@ -35,7 +35,7 @@ $getSchoolId = $this->input->get('sid', TRUE);
                             <div class="col-md-4">
                                 <div class="form-group ">
                                     <label>Teacher Mobile No</label>
-                                    <input type="text" name="mobile" placeholder="Mobile" class="form-control" id="shool_name">
+                                    <input type="text" name="mobile" placeholder="Mobile" class="form-control" id="teach_name">
                                 </div>
                             </div>
                             <div class="form-group ">
@@ -43,8 +43,8 @@ $getSchoolId = $this->input->get('sid', TRUE);
                                 <input type="file" name="image" class="form-control">
                             </div>
                         </div>
-						<input type="hidden" name="school_id" value="<?php echo $getSchoolId;?>" id="shool_name">
-                        <button type="submit" class="btn btn-sm btn-primary AddSchool float-right">Add School</button>
+						<input type="hidden" name="school_id" value="<?php echo $getSchoolId;?>" id="teach_name">
+                        <button type="submit" class="btn btn-sm btn-primary AddTeacher float-right">Add School</button>
                     </form>
                 </div>
             </div>
@@ -92,8 +92,8 @@ $getSchoolId = $this->input->get('sid', TRUE);
 </section>
 
 <script>
-    $('.AddSchool').on("click", function () {
-        var name = $('#shool_name').val();
+    $('.AddTeacher').on("click", function () {
+        var name = $('#teach_name').val();
         $.post("<?php echo base_url('dashboard_sadmin/add_teacher'); ?>", {"name": name}, function (d) {
             if (d.status == 200) {
                 $.toast({

@@ -192,6 +192,8 @@
                                 <li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard_sadmin/school');?>">Add New School</a></li>
                                 <li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard_sadmin/lists');?>">Total School</a></li>
                                 <li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard_sadmin/total_teacher');?>">Total Teacher</a></li>
+								<li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard_sadmin/total_class');?>">Total Class</a></li>
+								<li class="nav-item"><a class="nav-link" href="<?php echo base_url('dashboard_sadmin/total_student');?>">Total Student</a></li>
                             </ul>
                         </li>
                       

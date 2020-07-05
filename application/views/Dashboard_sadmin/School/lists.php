@@ -12,6 +12,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
+                                <th>Session</th>
                                 <th>Image</th>
                                 <th>Create Date</th>
                                 <th>Action</th>
@@ -26,9 +27,14 @@
                                 <tr>
                                     <td><?php echo $count++; ?></td>
                                     <td><?php echo $sch->school_name; ?></td>
+                                    <td><?php echo $sch->school_session; ?></td>
                                     <td><img src="<?php echo base_url('images') . "/" . $sch->image; ?>" height="50" width="50"></td>
 									<td><?php echo $sch->date; ?></td>
-                                    <td><a href="<?php echo base_url('/dashboard_sadmin/teacher');?>?sid=<?php echo $sch->id; ?>">Add Teacher</a> | <a href="#">Edit School</a></td>
+                                    <td>
+									<a href="<?php echo base_url('/dashboard_sadmin/teacher');?>?sid=<?php echo $sch->id; ?>">Add Teacher</a> | 
+									<a href="<?php echo base_url('/dashboard_sadmin/classes');?>?sid=<?php echo $sch->id; ?>">Add Class</a> | 
+									<a href="<?php echo base_url('/dashboard_sadmin/student');?>?sid=<?php echo $sch->id; ?>">Add Student</a>
+									</td>
                                 </tr>
                             <?php } ?>
 

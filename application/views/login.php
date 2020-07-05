@@ -80,7 +80,7 @@
         </div>
 
         <!-- Common Plugins -->
-        <script src="assets/lib/jquery/dist/jquery.min.js"></script>
+        <script src="../assets/lib/jquery/dist/jquery.min.js"></script>
       
         
         <script>
