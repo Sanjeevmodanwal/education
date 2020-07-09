@@ -80,7 +80,7 @@
         </div>
 
         <!-- Common Plugins -->
-        <script src="../assets/lib/jquery/dist/jquery.min.js"></script>
+        <script src="assets/lib/jquery/dist/jquery.min.js"></script>
       
         
         <script>
@@ -90,7 +90,7 @@
                $.post("<?php echo base_url('auth/login');?>",{"email":email,"password":pass},function(d){
                   if(d.status==200){
                       window.location.href="<?php echo base_url('/dashboard_sadmin/');?>";
-                  }else if(d.status==201){
+                  }else if(d.status==202){
                       window.location.href="<?php echo base_url('/dashboard/');?>";
                   }else if(d.status==500){
                       alert("me");

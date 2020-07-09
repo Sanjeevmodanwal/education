@@ -1,6 +1,7 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 //header('Content-Type: application/json');
 /**
  * Class Auth
@@ -8,37 +9,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @property CI_Form_validation      $form_validation The form validation library
  */
 class Auth extends CI_Controller {
+
     /**
      * Redirect if needed, otherwise display the user list
      */
-    
-       public function __construct() {
+    public function __construct() {
         parent::__construct();
-         $this->load->library('session');
+        $this->load->library('session');
     }
-
 
     /**
      * Log the user in
      */
     public function login() {
         $email = $this->input->post('email');
-        //$pass = md5($this->input->post('password'));
+        $pass = md5($this->input->post('password'));
         //  echo $pass; exit;
-        $pass = $this->input->post('password');
+       // $pass = $this->input->post('password');
         $this->db->where('email', $email);
         $this->db->where('password', $pass);
         $result = $this->db->get('users')->row();
         if ($result) {
-			if($result->role == 1){
-				$_SESSION['user']=$result;
-				$res = array('status' => 200);
-			}
-			if($result->role == 3){
-				$_SESSION['user']=$result;
-				$res = array('status' => 201);
-			}
-            
+            if ($result->role == 1) {
+                $_SESSION['user'] = $result;
+                $res = array('status' => 200);
+            }elseif ($result->role == 3) {
+                $_SESSION['user'] = $result;
+                $res = array('status' => 201);
+            }elseif ($result->role == 2) {
+                    $_SESSION['user'] = $result;
+                    $res = array('status' => 202);
+            }
         } else {
             $res = array('status' => 500, 'msg' => 'email or password are not matched');
         }

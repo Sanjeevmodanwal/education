@@ -33,7 +33,8 @@
                                     <td>
 									<a href="<?php echo base_url('/dashboard_sadmin/teacher');?>?sid=<?php echo $sch->id; ?>">Add Teacher</a> | 
 									<a href="<?php echo base_url('/dashboard_sadmin/classes');?>?sid=<?php echo $sch->id; ?>">Add Class</a> | 
-									<a href="<?php echo base_url('/dashboard_sadmin/student');?>?sid=<?php echo $sch->id; ?>">Add Student</a>
+									<a href="<?php echo base_url('/dashboard_sadmin/student');?>?sid=<?php echo $sch->id; ?>">Add Student</a> |
+                                                                        <a href="<?php echo base_url('/dashboard_sadmin/founder');?>?sid=<?php echo $sch->id; ?>">Add Founder</a>
 									</td>
                                 </tr>
                             <?php } ?>
