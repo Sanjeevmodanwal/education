@@ -2,27 +2,27 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-heading card-default">Add Student</div>
+                <div class="card-heading card-default">Add New Student</div>
                 <div class="card-block">
-                    <form role="form" method="post" action="<?php echo base_url('school/add_teacher'); ?>" enctype="multipart/form-data">
-                        <input type="hidden" name="role" value="1">
+                    <form role="form" method="post" action="<?php echo base_url('dashboard/add_student'); ?>" enctype="multipart/form-data">
+                        <input type="hidden" name="role" value="3">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group ">
-                                    <label>Name</label>
-                                    <input type="text" name="username" placeholder="Name" class="form-control" id="shool_name">
+                                    <label>Student Name</label>
+									<input type="text" name="username" placeholder="Name" class="form-control" id="teach_name">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group ">
-                                    <label>Email</label>
-                                    <input type="text" name="email" placeholder="Email" class="form-control" id="shool_name">
+                                    <label>Student Email</label>
+                                    <input type="text" name="email" placeholder="Email" class="form-control" id="teach_name">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group ">
-                                    <label>Password</label>
-                                    <input type="text" name="password" placeholder="Password" class="form-control" id="shool_name">
+                                    <label>Student Password</label>
+                                    <input type="text" name="password" placeholder="Password" class="form-control" id="teach_name">
                                 </div>
                             </div>
 
@@ -31,42 +31,18 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group ">
-                                    <label>Mobile No</label>
-                                    <input type="text" name="mobile" placeholder="Mobile" class="form-control" id="shool_name">
+                                    <label>Student Mobile No</label>
+                                    <input type="text" name="mobile" placeholder="Mobile" class="form-control" id="teach_name">
                                 </div>
                             </div>
                             <div class="form-group ">
-                                <label>Upload image</label>
+                                <label>Upload Student image</label>
                                 <input type="file" name="image" class="form-control">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-sm btn-primary AddSchool float-right">Add Student</button>
+						<input type="hidden" name="school_id" value="<?php echo $getSchoolId;?>" id="teach_name">
+                        <button type="submit" class="btn btn-sm btn-primary AddTeacher float-right">Add Student</button>
                     </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-heading card-default">
-                    Category
-                </div>
-                <div class="card-block">
-                    <table id="datatable" class="table table-striped dt-responsive nowrap">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Image</th>
-                                <th>Create Date</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="ListLocation">
-
-
-                        </tbody> 
-                    </table>
                 </div>
             </div>
         </div>
@@ -75,9 +51,9 @@
 </section>
 
 <script>
-    $('.AddSchool').on("click", function () {
-        var name = $('#shool_name').val();
-        $.post("<?php echo base_url('school/add_school'); ?>", {"name": name}, function (d) {
+    $('.AddTeacher').on("click", function () {
+        var name = $('#teach_name').val();
+        $.post("<?php echo base_url('dashboard/add_student'); ?>", {"name": name}, function (d) {
             if (d.status == 200) {
                 $.toast({
                     heading: 'Success !',
