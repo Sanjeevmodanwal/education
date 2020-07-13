@@ -182,8 +182,13 @@ class Dashboard_sadmin extends CI_Controller {
     public function founder() {
         if (!empty($this->input->get('sid'))) {
             $school_id = $this->input->get('sid');
+			
             $result['founders'] = $this->SuperAdmin_School_model->get_founder_list($school_id);
-           // print_r($result); exit;
+			// $result['founders']->success = false;
+			// echo '<pre>';
+           // print_r($result);
+		   // echo '</pre>';
+		   // exit;
             $this->load->view('templates/superadmin_header.php');
             $this->load->view('Dashboard_sadmin/School/founder.php', $result);
             $this->load->view('templates/footer.php');
@@ -198,27 +203,42 @@ class Dashboard_sadmin extends CI_Controller {
 
     public function add_founder() {
         $formdata = $this->input->post();
-        $data = array(
-            'username' => $formdata['username'],
-            'email' => $formdata['email'],
-            'mobile' => $formdata['mobile'],
-            'password' => md5($formdata['password']),
-            'role' => 2,
-            'join_date' => date('Y-m-d')
-        );
-        $this->db->insert('users', $data);
-        $insert_id = $this->db->insert_id();
-        if ($this->db->affected_rows() > 0) {
-            $updata = array(
-                'user_id' => $insert_id, 
-            );
-            $this->db->where('id', $formdata['school_id']);
-            $this->db->update('school', $updata);
-            $this->session->set_flashdata('item', 'Record is  saved');
-            redirect('/Dashboard_sadmin/founder?sid=' . $formdata['school_id']);
-        } else {
-            return false;
-        }
+		if(empty($formdata['founder_id'])){
+			$data = array(
+				'username' => $formdata['username'],
+				'email' => $formdata['email'],
+				'mobile' => $formdata['mobile'],
+				'password' => md5($formdata['password']),
+				'role' => 2,
+				'join_date' => date('Y-m-d')
+			);
+			$this->db->insert('users', $data);
+			$insert_id = $this->db->insert_id();
+			if ($this->db->affected_rows() > 0) {
+				$updata = array(
+					'user_id' => $insert_id, 
+				);
+				$this->db->where('id', $formdata['school_id']);
+				$this->db->update('school', $updata);
+				$this->session->set_flashdata('item', 'Record is  saved');
+				redirect('/Dashboard_sadmin/founder?sid=' . $formdata['school_id']);
+			} else {
+				return false;
+			}
+		}else{
+			$data = array(
+				'username' => $formdata['username'],
+				'email' => $formdata['email'],
+				'mobile' => $formdata['mobile'],
+				'join_date' => date('Y-m-d')
+			);
+			$founder_id = $formdata['founder_id'];
+			$this->db->where('id', $founder_id);
+			$this->db->update('users', $data);
+			redirect('/Dashboard_sadmin/founder?sid=' . $formdata['school_id']);
+		}
+		
+		
     }
 
 }

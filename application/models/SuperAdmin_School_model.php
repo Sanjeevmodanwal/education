@@ -179,6 +179,7 @@ class SuperAdmin_School_model extends CI_Model {
      */
 
     public function get_founder_list($sid) {
+		 $this->db->select("school.id as sid, school.user_id, school.school_name, users.id, users.username, users.email,  users.mobile,  users.password, users.role");
          $this->db->from('users');
          $this->db->join('school', 'school.user_id = users.id');
          $this->db->where('school.id', $sid);
