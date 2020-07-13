@@ -24,8 +24,6 @@ class Auth extends CI_Controller {
     public function login() {
         $email = $this->input->post('email');
         $pass = md5($this->input->post('password'));
-        //  echo $pass; exit;
-       // $pass = $this->input->post('password');
         $this->db->where('email', $email);
         $this->db->where('password', $pass);
         $result = $this->db->get('users')->row();
@@ -35,7 +33,7 @@ class Auth extends CI_Controller {
                 $res = array('status' => 200);
             }elseif ($result->role == 3) {
                 $_SESSION['user'] = $result;
-                $res = array('status' => 201);
+                $res = array('status' => 203);
             }elseif ($result->role == 2) {
                     $_SESSION['user'] = $result;
                     $res = array('status' => 202);

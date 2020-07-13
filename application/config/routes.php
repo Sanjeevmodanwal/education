@@ -56,12 +56,17 @@ $route['register'] = 'welcome/register';
 $route['dashboard_sadmin'] = 'dashboard_sadmin/index';
 $route['lists'] = 'dashboard_sadmin/school/lists';
 $route['teacher'] = 'dashboard_sadmin/teacher';
-$route['school'] = 'dashboard_sadmin/school';
+$route['supschool'] = 'dashboard_sadmin/school';
 $route['total_teacher'] = 'dashboard_sadmin/total_teacher';
 $route['classes'] = 'dashboard_sadmin/classes';
 $route['total_class'] = 'dashboard_sadmin/total_class';
 $route['student'] = 'dashboard_sadmin/student';
 $route['total_student'] = 'dashboard_sadmin/total_student';
+$route['home'] = 'Teacher';
+
+$route['home/title'] = 'Teacher/title';
+$route['home/objective'] = 'Teacher/objective';
+$route['home/view_student'] = 'Teacher/view_student';
 
 $route['dashbaord'] = 'dashbaord/index';
 $route['school'] = 'dashbaord/school';

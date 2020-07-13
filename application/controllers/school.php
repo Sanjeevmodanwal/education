@@ -11,7 +11,7 @@ class School extends CI_Controller {
         //$this->load->library('form_validation');
     }
 
-    public function add_school() {
+    public function add_school() {  //add school by founder
         $users=$_SESSION['user'];
         $filename = rand(0, 99999) . $_FILES['image']['name'];
         $this->load->helper(array('form', 'url'));
@@ -81,5 +81,6 @@ class School extends CI_Controller {
         $this->load->view('dashboard/school/school.php');
         $this->load->view('templates/footer.php');
     }
-
+    
+   
 }

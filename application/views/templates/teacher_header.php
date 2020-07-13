@@ -183,17 +183,13 @@
 
                        <!-- <li class="nav-heading"><span>Main</span></li>-->
 
-                        <li class="nav-item active"><a class="nav-link" href="<?php echo base_url('Dashboard_sadmin'); ?>"><i class="fa fa-home"></i> <span class="toggle-none">Dashboard </a></li>						
+                        <li class="nav-item active"><a class="nav-link" href="<?php echo base_url('home'); ?>"><i class="fa fa-home"></i> <span class="toggle-none">Dashboard </a></li>						
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="javascript: void(0);" aria-expanded="true"><i class="fa fa-envelope-o"></i> <span class="toggle-none">Super-Admin<span class="fa arrow"></span></span></a>
+                            <a class="nav-link" href="javascript: void(0);" aria-expanded="true"><i class="fa fa-envelope-o"></i> <span class="toggle-none">School<span class="fa arrow"></span></span></a>
                             <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="true">
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard_sadmin/supschool'); ?>">Add New School</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard_sadmin/lists'); ?>">Total School</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard_sadmin/total_teacher'); ?>">Total Teacher</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard_sadmin/total_class'); ?>">Total Class</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard_sadmin/total_student'); ?>">Total Student</a></li>
+                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('home/title'); ?>">Make Question paper</a></li>
                             </ul>
                         </li>
 

@@ -1,7 +1,7 @@
 <section class="main-content container">
     <div class="row">
 
-         <div class="col-md-12">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-heading card-default">
                     School List
@@ -29,13 +29,13 @@
                                     <td><?php echo $sch->school_name; ?></td>
                                     <td><?php echo $sch->school_session; ?></td>
                                     <td><img src="<?php echo base_url('images') . "/" . $sch->image; ?>" height="50" width="50"></td>
-									<td><?php echo $sch->date; ?></td>
+                                    <td><?php echo $sch->date; ?></td>
                                     <td>
-									<a href="<?php echo base_url('/dashboard_sadmin/teacher');?>?sid=<?php echo $sch->id; ?>">Add Teacher</a> | 
-									<a href="<?php echo base_url('/dashboard_sadmin/classes');?>?sid=<?php echo $sch->id; ?>">Add Class</a> | 
-									<a href="<?php echo base_url('/dashboard_sadmin/student');?>?sid=<?php echo $sch->id; ?>">Add Student</a> |
-                                                                        <a href="<?php echo base_url('/dashboard_sadmin/founder');?>?sid=<?php echo $sch->id; ?>">Add Founder</a>
-									</td>
+                                        <a href="<?php echo base_url('/Dashboard_sadmin/teacher'); ?>?sid=<?php echo $sch->id; ?>">Add Teacher</a> | 
+                                        <a href="<?php echo base_url('/Dashboard_sadmin/classes'); ?>?sid=<?php echo $sch->id; ?>">Add Class</a> | 
+                                        <a href="<?php echo base_url('/Dashboard_sadmin/student'); ?>?sid=<?php echo $sch->id; ?>">Add Student</a> |
+                                        <a href="<?php echo base_url('/Dashboard_sadmin/founder'); ?>?sid=<?php echo $sch->id; ?>">Add Founder</a>
+                                    </td>
                                 </tr>
                             <?php } ?>
 

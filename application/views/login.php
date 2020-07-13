@@ -92,6 +92,8 @@
                       window.location.href="<?php echo base_url('/dashboard_sadmin/');?>";
                   }else if(d.status==202){
                       window.location.href="<?php echo base_url('/dashboard/');?>";
+                  }else if(d.status==203){
+                      window.location.href="<?php echo base_url('/home/');?>";
                   }else if(d.status==500){
                       alert("me");
                   }

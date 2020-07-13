@@ -43,9 +43,9 @@
                                 ?>
                                 <tr>
                                     <td><?php echo $count++; ?></td>
-                                    <td class="lname<?php echo $sch['id']; ?>"><?php echo $sch['school_name']; ?></td>
-                                    <td class="ladd<?php echo $sch['id']; ?>"><img src="<?php echo base_url('images') . "/" . $sch['image']; ?>" height="150" width="150"></td>
-                                    <td><button class="btn btn-primary edit-btn" data-id="<?php echo $sch['id']; ?>">Edit</button></td>
+                                    <td class="lname<?php echo $sch->id; ?>"><?php echo $sch->school_name; ?></td>
+                                    <td class="ladd<?php echo $sch->id; ?>"><img src="<?php echo base_url('images') . "/" . $sch->image; ?>" height="150" width="150"></td>
+                                    <td><button class="btn btn-primary edit-btn" data-id="<?php echo $sch->id; ?>">Edit</button></td>
                                 </tr>
                             <?php } ?>
 

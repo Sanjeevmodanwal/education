@@ -22,18 +22,18 @@ class Dashboard_sadmin extends CI_Controller {
     }
 
     public function lists() {
-        $result['school_list'] = $this->SuperAdmin_School_model->get_school();
+        $result['school_list'] = $this->SuperAdmin_School_model->get_School();
         $this->load->view('templates/superadmin_header.php');
-        $this->load->view('Dashboard_sadmin/school/lists.php', $result);
+        $this->load->view('Dashboard_sadmin/School/lists.php', $result);
         $this->load->view('templates/footer.php');
     }
 
     public function teacher() {
         if (!empty($this->input->get('sid'))) {
-            $school_id = $this->input->get('sid');
-            $result['techer_list'] = $this->SuperAdmin_School_model->get_techer_list($school_id);
+            $School_id = $this->input->get('sid');
+            $result['techer_list'] = $this->SuperAdmin_School_model->get_techer_list($School_id);
             $this->load->view('templates/superadmin_header.php');
-            $this->load->view('Dashboard_sadmin/school/teacher.php', $result);
+            $this->load->view('Dashboard_sadmin/School/teacher.php', $result);
             $this->load->view('templates/footer.php');
         } else {
             redirect('/dashboard_sadmin/');
@@ -42,7 +42,7 @@ class Dashboard_sadmin extends CI_Controller {
 
     public function add_teacher() {
         $formdata = $this->input->post();
-        $sid = $formdata['school_id'];
+        $sid = $formdata['School_id'];
         $filename = $_FILES['image']['name'];
         if (!empty($filename)) {
             $filename = rand(0, 99999) . $_FILES['image']['name'];
@@ -70,13 +70,15 @@ class Dashboard_sadmin extends CI_Controller {
         }
     }
 
-    public function school() {
+    public function supschool() {
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('school');
         $this->load->view('templates/superadmin_header.php');
-        $this->load->view('dashboard_sadmin/school/school.php');
+        $this->load->view('Dashboard_sadmin/School/school.php');
         $this->load->view('templates/footer.php');
     }
 
-    public function add_school() {
+    public function add_School() {
         $filename = rand(0, 99999) . $_FILES['image']['name'];
         $this->load->helper(array('form', 'url'));
         $config['upload_path'] = 'images/';
@@ -88,8 +90,8 @@ class Dashboard_sadmin extends CI_Controller {
             $this->session->set_flashdata('item', $this->upload->display_errors());
         } else {
             $data = array(
-                'school_name' => $this->input->post('school_name'),
-                'school_session' => $this->input->post('school_session'),
+                'School_name' => $this->input->post('school_name'),
+                'School_session' => $this->input->post('school_session'),
                 'image' => $filename,
                 'date' => date('Y-m-d')
             );
@@ -100,23 +102,23 @@ class Dashboard_sadmin extends CI_Controller {
                 $this->session->set_flashdata('item', 'Record is not saved');
             }
         }
-        redirect('/Dashboard_sadmin/school');
+        redirect('/Dashboard_sadmin/');
     }
 
     public function total_teacher() {
         $result['techer_list'] = $this->SuperAdmin_School_model->get_total_teacher_list();
         $this->load->view('templates/superadmin_header.php');
-        $this->load->view('Dashboard_sadmin/school/total_teacher.php', $result);
+        $this->load->view('Dashboard_sadmin/School/total_teacher.php', $result);
         $this->load->view('templates/footer.php');
     }
 
     public function classes() {
         if (!empty($this->input->get('sid'))) {
-            $school_id = $this->input->get('sid');
-            $result['techer_list'] = $this->SuperAdmin_School_model->get_techer_list($school_id);
-            $result['get_class_list'] = $this->SuperAdmin_School_model->get_class_list($school_id);
+            $School_id = $this->input->get('sid');
+            $result['techer_list'] = $this->SuperAdmin_School_model->get_techer_list($School_id);
+            $result['get_class_list'] = $this->SuperAdmin_School_model->get_class_list($School_id);
             $this->load->view('templates/superadmin_header.php');
-            $this->load->view('Dashboard_sadmin/school/classes.php', $result);
+            $this->load->view('Dashboard_sadmin/School/classes.php', $result);
             $this->load->view('templates/footer.php');
         } else {
             redirect('/dashboard_sadmin/');
@@ -125,7 +127,7 @@ class Dashboard_sadmin extends CI_Controller {
 
     public function add_class() {
         $formdata = $this->input->post();
-        $sid = $formdata['school_id'];
+        $sid = $formdata['School_id'];
         $obj = $this->SuperAdmin_School_model->add_class_fields($formdata);
         if ($obj == true) {
             $this->session->set_flashdata('item', 'Record is  saved');
@@ -139,18 +141,18 @@ class Dashboard_sadmin extends CI_Controller {
     public function total_class() {
         $result['class_list'] = $this->SuperAdmin_School_model->get_total_class_list();
         $this->load->view('templates/superadmin_header.php');
-        $this->load->view('Dashboard_sadmin/school/total_class.php', $result);
+        $this->load->view('Dashboard_sadmin/School/total_class.php', $result);
         $this->load->view('templates/footer.php');
     }
 
     public function student() {
         if (!empty($this->input->get('sid'))) {
-            $school_id = $this->input->get('sid');
-            $result['techer_list'] = $this->SuperAdmin_School_model->get_techer_list($school_id);
-            $result['get_class_list'] = $this->SuperAdmin_School_model->get_class_list($school_id);
-            $result['get_student_list'] = $this->SuperAdmin_School_model->get_student_list($school_id);
+            $School_id = $this->input->get('sid');
+            $result['techer_list'] = $this->SuperAdmin_School_model->get_techer_list($School_id);
+            $result['get_class_list'] = $this->SuperAdmin_School_model->get_class_list($School_id);
+            $result['get_student_list'] = $this->SuperAdmin_School_model->get_student_list($School_id);
             $this->load->view('templates/superadmin_header.php');
-            $this->load->view('Dashboard_sadmin/school/student.php', $result);
+            $this->load->view('Dashboard_sadmin/School/student.php', $result);
             $this->load->view('templates/footer.php');
         } else {
             redirect('/Dashboard_sadmin/');
@@ -173,7 +175,7 @@ class Dashboard_sadmin extends CI_Controller {
     public function total_student() {
         $result['student_list'] = $this->SuperAdmin_School_model->get_total_student_list();
         $this->load->view('templates/superadmin_header.php');
-        $this->load->view('Dashboard_sadmin/school/total_student.php', $result);
+        $this->load->view('Dashboard_sadmin/School/total_student.php', $result);
         $this->load->view('templates/footer.php');
     }
 
@@ -183,7 +185,7 @@ class Dashboard_sadmin extends CI_Controller {
             $result['founders'] = $this->SuperAdmin_School_model->get_founder_list($school_id);
            // print_r($result); exit;
             $this->load->view('templates/superadmin_header.php');
-            $this->load->view('Dashboard_sadmin/school/founder.php', $result);
+            $this->load->view('Dashboard_sadmin/School/founder.php', $result);
             $this->load->view('templates/footer.php');
         } else {
             redirect('/dashboard_sadmin/');
@@ -212,7 +214,8 @@ class Dashboard_sadmin extends CI_Controller {
             );
             $this->db->where('id', $formdata['school_id']);
             $this->db->update('school', $updata);
-            return true;
+            $this->session->set_flashdata('item', 'Record is  saved');
+            redirect('/Dashboard_sadmin/founder?sid=' . $formdata['school_id']);
         } else {
             return false;
         }
