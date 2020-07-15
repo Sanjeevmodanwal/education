@@ -94,6 +94,8 @@
                       window.location.href="<?php echo base_url('/dashboard/');?>";
                   }else if(d.status==203){
                       window.location.href="<?php echo base_url('/home/');?>";
+                  }else if(d.status==204){
+                      window.location.href="<?php echo base_url('/Student/');?>";
                   }else if(d.status==500){
                       alert("me");
                   }

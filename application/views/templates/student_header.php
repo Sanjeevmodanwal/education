@@ -144,7 +144,7 @@
                                  </ul>
                              </li>-->
                             <li>
-                                <a class="dropdown-item" href="<?php echo base_url('Auth/logout/'); ?>">Logout</a>
+                                <a class="dropdown-item" href="<?php echo base_url('Auth/logout/'); ?>"> Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -183,17 +183,14 @@
 
                        <!-- <li class="nav-heading"><span>Main</span></li>-->
 
-                        <li class="nav-item active"><a class="nav-link" href="<?php echo base_url('Dashboard'); ?>"><i class="fa fa-home"></i> <span class="toggle-none">Dashboard </a></li>						
+                        <li class="nav-item active"><a class="nav-link" href="<?php echo base_url('Student'); ?>"><i class="fa fa-home"></i> <span class="toggle-none">Dashboard </a></li>						
 
 
                         <li class="nav-item">
                             <a class="nav-link" href="javascript: void(0);" aria-expanded="true"><i class="fa fa-envelope-o"></i> <span class="toggle-none">School<span class="fa arrow"></span></span></a>
                             <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="true">
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/school'); ?>">Create School Name</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/createCls'); ?>">Create Class</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/subject'); ?>">Add Subject</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/teacher'); ?>">Create Teacher</a></li>
-                                <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/student'); ?>">Create Student</a></li>
+                                <!--li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/school'); ?>">Create School Name</a></li-->
+                                
 
 
 

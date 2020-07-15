@@ -37,6 +37,9 @@ class Auth extends CI_Controller {
             }elseif ($result->role == 2) {
                     $_SESSION['user'] = $result;
                     $res = array('status' => 202);
+            }elseif ($result->role == 4) {
+                    $_SESSION['user'] = $result;
+                    $res = array('status' => 204);
             }
         } else {
             $res = array('status' => 500, 'msg' => 'email or password are not matched');

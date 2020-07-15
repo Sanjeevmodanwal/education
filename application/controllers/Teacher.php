@@ -82,7 +82,6 @@ class Teacher extends CI_Controller {
         $user = $_SESSION['user'];
         $data = array(
             'testpaper_id' => $_SESSION['paper_id'],
-            'user_id' => $user->id,
             'question' => $this->input->post('question'),
             'opt_a' => $this->input->post('opt_a'),
             'opt_b' => $this->input->post('opt_b'),
