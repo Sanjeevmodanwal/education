@@ -17,6 +17,13 @@ class Teacher_model extends CI_Model {
         
     }
     
+    public function get_school_id($uid) { //get school by founder id
+        $this->db->where('teacher_id',$uid);
+        $query = $this->db->get('teacher')->row();
+        return $query->school_id;
+    }
+    
+    
    
 }
 

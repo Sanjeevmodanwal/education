@@ -5,7 +5,7 @@
                 <div class="card-heading card-default">Add New Student</div>
                 <div class="card-block">
                     <form role="form" method="post" action="<?php echo base_url('Dashboard/add_student'); ?>" enctype="multipart/form-data">
-                        <input type="hidden" name="role" value="3">
+                      
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">

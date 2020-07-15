@@ -53,4 +53,74 @@
             </div>
         </div>
     </div>
+    
+     <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-heading card-default">
+                    Student List
+                </div>
+                <div class="card-block">
+                    <table id="datatable" class="table table-striped dt-responsive nowrap">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Subject</th>
+                                <th>Title</th>
+                                <th>Class</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+ 
+                        <tbody id="ListLocation">
+
+                            <?php $count=0;foreach($papers as $p) { $count++; ?>
+                            <tr>
+                                <td><?php echo $count;?></td>
+                                <td><?php echo $p->subject_name;?></td>
+                                <td><?php echo $p->title;?></td>
+                                <td><?php echo $p->class;?></td>
+                                <td>
+                                    <?php  if($p->status==0){ ?>
+                                    <button class="btn btn-primary pending" data-id="<?php echo $p->id;?>">Pending</button>
+                                    <?php } else { ?>
+                                      <button class="btn btn-success">Complete</button>
+                                       <button class="btn btn-info assign" data-id="<?php echo $p->id;?>" data-class="<?php echo $p->class;?>" data-subject="<?php echo $p->subject_id;?>">Assign Paper</button>
+                                    <?php } ?>
+                                </td>
+                                
+                            </tr>
+                            <?php } ?>
+                        </tbody> 
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<script>
+    $('.pending').on("click", function () {
+        var id = $(this).data().id;
+        $.post("<?php echo base_url('Teacher/store'); ?>", {"id": id}, function (d) {
+            if (d.status == 200) {
+              //  alert("me");
+               window.location.href="<?php echo base_url('Teacher/objective'); ?>";
+            }
+        }, 'json');
+    });
+    
+    $('.assign').on("click",function(){
+     var id = $(this).data().id;
+     var cls=$(this).data().class;
+     var sub=$(this).data().subject;
+        $.post("<?php echo base_url('Teacher/assign'); ?>", {"id": id,"cls":cls,"sub_id":sub}, function (d) {
+           if(d.status==200){
+               alert(d.msg);
+           }else if(d.status==500){
+              alert(d.msg); 
+           }
+        }, 'json');
+      
+    });
+</script>

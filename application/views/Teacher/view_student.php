@@ -18,22 +18,14 @@
 
                         <tbody id="ListLocation">
 
+                            <?php foreach($students as $stu) { ?>
                             <tr>
                                 <td>1</td>
-                                <td>Ankit</td>
-                                <td>Ankit@gmail.com</td>
+                                <td><?php echo $stu->username;?></td>
+                                <td><?php echo $stu->email;?></td>
                                 <td><img src="<?php echo base_url('images') . "/" . '688561.jpg'; ?>" height="150" width="150"></td>
-
                             </tr>
-
-                            <tr>
-                                <td>1</td>
-                                <td>Aman</td>
-                                <td>aman@gmail.com</td>
-                                <td><img src="<?php echo base_url('images') . "/" . '688561.jpg'; ?>" height="150" width="150"></td>
-
-                            </tr>
-
+                            <?php } ?>
                         </tbody> 
                     </table>
                 </div>

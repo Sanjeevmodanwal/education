@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-heading card-default">Add Class</div>
+                <div class="card-heading card-default">Add Objective Question</div>
                 <div class="card-block">
                     <form role="form" method="post" action="<?php echo base_url('Teacher/add_objective'); ?>" enctype="multipart/form-data">
                         <div class="row">
@@ -33,10 +33,17 @@
                                     <input type="text" name="opt_c" placeholder="Enter Option" class="form-control" id="shool_name">
                                 </div>  
                             </div>
+                            
                             <div class="col-md-6">
                                 <div class="form-group ">
                                     <label>Option D</label>
                                     <input type="text" name="opt_d" placeholder="Enter Option" class="form-control" id="shool_name">
+                                </div>  
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                    <label>Answer C</label>
+                                    <input type="text" name="ans" placeholder="Enter Answer" class="form-control" id="shool_name">
                                 </div>  
                             </div>
                         </div>
@@ -57,6 +64,7 @@
             <div class="card">
                 <div class="card-heading card-default">
                     Question  Paper
+                    <button class="btn btn-success float-right rel">Release</button>
                 </div>
                 <div class="card-block">
                     <table id="datatable" class="table table-striped dt-responsive nowrap">
@@ -68,6 +76,7 @@
                                 <th>Option B</th>
                                 <th>Option C</th>
                                 <th>Option D</th>
+                                <th>Answer</th>
                             </tr>
                         </thead>
 
@@ -81,6 +90,7 @@
                                 <td><?php echo $obj->opt_b;?></td>
                                 <td><?php echo $obj->opt_c;?></td>
                                 <td><?php echo $obj->opt_d;?></td>
+                                 <td><?php echo $obj->ans;?></td>
 
                             </tr>
                             <?php } ?>
@@ -94,3 +104,13 @@
     </div>
     
 </section>
+
+<script>
+    $('.rel').on("click", function () {
+        $.get("<?php echo base_url('Teacher/release'); ?>",function (d) {
+            if (d.status == 200) {
+               window.location.href="<?php echo base_url('Teacher/objective'); ?>";
+            }
+        }, 'json');
+    });
+</script>

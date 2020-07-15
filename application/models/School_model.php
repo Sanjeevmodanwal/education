@@ -100,13 +100,13 @@ class School_model extends CI_Model {
     public function add_student($data) {
 
         $sid = $data['school_id'];
-        $role2 = $data['role'];
         $data = array(
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => md5($data['password']),
-            'role' => $role2,
+            'role' => 4,
             'mobile' => $data['mobile'],
+            'class'=>$data['class'],
             'image' => $data['image'],
             'join_date' => date('Y-m-d')
         );
@@ -176,6 +176,7 @@ class School_model extends CI_Model {
     }
     
     public function get_school_id($uid) { //get school by founder id
+        echo $uid; exit;
         $this->db->where('user_id',$uid);
         $query = $this->db->get('school')->row();
         return $query;
