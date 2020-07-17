@@ -9,10 +9,34 @@
                         <div class="row">
                             <div class="col-md-4">
                                  <div class="form-group">
-                                    <label>Select School</label>
-                                    <select name="school_id" class="form-control m-b">
+                                    <label>School Name</label>
+                                    <select name="school_id" class="form-control m-b" id="teach_name">
                                         <?php foreach ($schools as $sch) { ?>
                                         <option value="<?php echo $sch->id; ?>"><?php echo $sch->school_name; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+							
+							<div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Class Name</label>
+                                    <select name="class_id" class="form-control m-b" id="teach_name">
+										<option value="">Select Option</option>
+                                        <?php foreach ($get_classes_founder as $sch2) { ?>
+                                        <option value="<?php echo $sch2->id; ?>"><?php echo $sch2->class_name; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+							
+							<div class="col-md-4">
+                                 <div class="form-group">
+                                    <label>Subject Name</label>
+                                    <select name="subject_id" class="form-control m-b" id="teach_name">
+										<option value="">Select Option</option>
+                                        <?php foreach ($get_subject_founder as $sch3) { ?>
+                                        <option value="<?php echo $sch3->id; ?>"><?php echo $sch3->subject_name; ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -32,9 +56,7 @@
                             </div>
                             
 
-                        </div>
-
-                        <div class="row">
+                        
                             <div class="col-md-4">
                                 <div class="form-group ">
                                     <label>Teacher Password</label>
@@ -47,13 +69,15 @@
                                     <input type="text" name="mobile" placeholder="Mobile" class="form-control" id="teach_name">
                                 </div>
                             </div>
+							<div class="col-md-4">
                             <div class="form-group ">
                                 <label>Upload Teacher image</label>
                                 <input type="file" name="image" class="form-control">
                             </div>
+                            </div>
                         </div>
 						
-                        <button type="submit" class="btn btn-sm btn-primary AddTeacher float-right">Add Teacher</button>
+                        <button type="submit" class="btn btn-sm btn-primary AddTeacher float-right">Submit</button>
                     </form>
                 </div>
             </div>
@@ -71,27 +95,32 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>School Name</th>
+                                <th>Class Name</th>
+                                <th>Subject Name</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                 <th>Mobile</th>
+                                <th>Mobile</th>
                                 <th>Image</th>
-                                <th>Create Date</th>
+                                <th>Created Date</th>
                             </tr>
                         </thead>
 
                         <tbody id="ListLocation">
                             <?php
                             $count = 1;
-                            foreach ($teachers as $sch) {
+                            foreach ($teachers as $sch4) {
                                 ?>
                                 <tr>
                                     <td><?php echo $count++; ?></td>
-                                    <td><?php echo $sch->username; ?></td>
-                                     <td><?php echo $sch->email; ?></td>
-                                     <td><?php echo $sch->mobile; ?></td>
-                                    <td><img src="<?php echo base_url('images') . "/" . $sch->image; ?>" height="150" width="150"></td>
-                                    <td><?php echo $sch->date; ?></td>
-                                    <td><button class="btn btn-primary edit-btn" data-id="<?php echo $sch->id; ?>">Edit</button></td>
+                                    <td><?php echo $sch4->school_name; ?></td>
+                                    <td><?php echo $sch4->class_name; ?></td>
+                                    <td><?php echo $sch4->subject_name; ?></td>
+                                    <td><?php echo $sch4->username; ?></td>
+                                     <td><?php echo $sch4->email; ?></td>
+                                     <td><?php echo $sch4->mobile; ?></td>
+                                    <td><img src="<?php echo base_url('images') . "/" . $sch4->image; ?>" height="50" width="50"></td>
+                                    <td><?php echo $sch4->join_date; ?></td>
                                 </tr>
                             <?php } ?>
 

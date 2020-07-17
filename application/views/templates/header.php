@@ -190,7 +190,8 @@
                             <a class="nav-link" href="javascript: void(0);" aria-expanded="true"><i class="fa fa-envelope-o"></i> <span class="toggle-none">School<span class="fa arrow"></span></span></a>
                             <ul class="nav-second-level nav flex-column sub-menu" aria-expanded="true">
                                 <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/school');?>">Create School Name</a></li>
-                                 <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/createCls');?>">Create Class</a></li>
+                                 <!--li class="nav-item"><a class="nav-link" href="<?php //echo base_url('Dashboard/createCls');?>">Create Class</a></li-->
+                                 <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/add_class_founder');?>">Add Class</a></li>
                                  <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/subject');?>">Add Subject</a></li>
                                 <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/teacher');?>">Create Teacher</a></li>
                                 <li class="nav-item"><a class="nav-link" href="<?php echo base_url('Dashboard/student');?>">Create Student</a></li>

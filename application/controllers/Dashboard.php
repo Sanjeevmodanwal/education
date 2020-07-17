@@ -23,18 +23,20 @@ class Dashboard extends CI_Controller {
         $this->load->view('templates/footer.php');
     }
 
-    public function teacher() {
+// code used for founder teacher
+    public function teacher() {  
         $users = $_SESSION['user'];
-       // print_r($users); exit;
         $result['getSchoolId'] = $_SESSION['logged_School_id'];
         $result['teachers'] = $this->School_model->get_total_teacher_list($_SESSION['logged_School_id']);
         $result['schools'] = $this->School_model->get_school($users->id);
-       // print_r($result['school']); exit;
+        $result['get_classes_founder'] = $this->School_model->get_classes_founder($users->id);
+        $result['get_subject_founder'] = $this->School_model->get_subject_founder($users->id);
         $this->load->view('templates/header.php');
         $this->load->view('Dashboard/School/teacher.php', $result);
         $this->load->view('templates/footer.php');
     }
 
+// code used for founder insert new teacher
     public function add_teacher() {
         $formdata = $this->input->post();
         $filename = $_FILES['image']['name'];
@@ -74,11 +76,12 @@ class Dashboard extends CI_Controller {
         $this->load->view('templates/footer.php');
     }
 
+// code used for student by founder id
     public function student() {
         $users = $_SESSION['user'];
         $school= $this->School_model->get_school_id($users->id);
-        $result['schools'] = $this->School_model->get_school($users->id);
-        $result['students'] = $this->School_model->get_student($school->id);
+        $result['get_classes_founder'] = $this->School_model->get_classes_founder($users->id);
+        $result['students_list'] = $this->School_model->get_student($school->id);
        // print_r($result['students']); exit;
         $this->load->view('templates/header.php');
         $this->load->view('Dashboard/School/student.php', $result);
@@ -199,5 +202,31 @@ class Dashboard extends CI_Controller {
             redirect('/Dashboard/createCls');
         }  
     }
+	
+	public function add_class_founder() {
+		$user = $_SESSION['user'];
+        $result['get_classes']= $this->School_model->get_classes($user->id);
+        $this->load->view('templates/header.php');
+        $this->load->view('Dashboard/School/add_class_founder.php', $result);
+        $this->load->view('templates/footer.php');
+    }
+	
+	public function add_class_founder_insert(){
+		$user = $_SESSION['user'];
+        $data = array(
+            'user_id' =>$user->id,
+            'class_name' => $this->input->post('class_name'),
+            'created_date' => date('Y-m-d H:i:s')
+        );
+        $this->db->insert('classes', $data);
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('item', 'Record is  saved');
+            redirect('/Dashboard/add_class_founder');
+        } else {
+            $this->session->set_flashdata('item', 'Record is  saved');
+            redirect('/Dashboard/add_class_founder');
+        } 
+	}
+
 
 }

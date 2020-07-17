@@ -9,10 +9,11 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Select School</label>
-                                    <select name="school_id" class="form-control m-b">
-                                        <?php foreach ($schools as $sch) { ?>
-                                            <option value="<?php echo $sch->id; ?>"><?php echo $sch->school_name; ?></option>
+                                    <label>Class Name</label>
+                                    <select name="class_id" class="form-control m-b">
+										<option value="">Select Option</option>
+                                        <?php foreach ($get_classes_founder as $sch) { ?>
+                                            <option value="<?php echo $sch->id; ?>"><?php echo $sch->class_name; ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -70,7 +71,7 @@
                                 <input type="file" name="image" class="form-control">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-sm btn-primary AddTeacher float-right">Add Student</button>
+                        <button type="submit" class="btn btn-sm btn-primary AddTeacher float-right">Submit</button>
                     </form>
                 </div>
             </div>

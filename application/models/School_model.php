@@ -13,11 +13,27 @@ class School_model extends CI_Model {
         $query = $this->db->get('school');
         return $query->result();
     }
+	
+	//get class by founder id
+	public function get_classes_founder($uid) { 
+        $this->db->where('user_id',$uid);
+        $query = $this->db->get('classes');
+        return $query->result();
+    }
+	
+	//get class by founder id
+	public function get_subject_founder($uid) { 
+        $this->db->where('user_id',$uid);
+        $query = $this->db->get('subjects');
+        return $query->result();
+    }
 
-    //// Add New Teacher here ////
+    //// Add New founder Teacher here ////
     public function add_teacher_new($data) {
 
         $sid = $data['school_id'];
+        $class_idid = $data['class_id'];
+        $subject_idid = $data['subject_id'];
         $role2 = $data['role'];
         $data = array(
             'username' => $data['username'],
@@ -33,6 +49,8 @@ class School_model extends CI_Model {
 
         $data2 = array(
             'school_id' => $sid,
+            'class_id' => $class_idid,
+            'subject_id' => $subject_idid,
             'teacher_id' => $insert_id,
             'role' => $role2
         );
@@ -53,12 +71,14 @@ class School_model extends CI_Model {
         return $query->num_rows();
     }
 
-    //// get total teacher list here //// 		
+    //// get  founder total teacher list here //// 		
     public function get_total_teacher_list($id) {
-      //  $this->db->select("school.school_name, users.username, users.email, users.mobile, users.join_date");
+       $this->db->select("school.school_name, classes.class_name, subjects.subject_name, users.username, users.email, users.mobile, users.image, users.join_date");
         $this->db->from('users');
         $this->db->join('teacher', 'teacher.teacher_id = users.id','left');
         $this->db->join('school', 'school.id = teacher.school_id','left');
+        $this->db->join('classes', 'classes.id = teacher.class_id','left');
+        $this->db->join('subjects', 'subjects.id = teacher.subject_id','left');
         $this->db->where('teacher.school_id', $id);
         $query = $this->db->get();
         return $query->result();
@@ -96,10 +116,10 @@ class School_model extends CI_Model {
     }
     
     
-        //// Add student by  founder ////
+	//// Add student by  founder id ////
     public function add_student($data) {
-
-        $sid = $data['school_id'];
+		$sid = $_SESSION['logged_School_id'];
+        $cid = $data['class_id'];
         $data = array(
             'username' => $data['username'],
             'email' => $data['email'],
@@ -114,10 +134,11 @@ class School_model extends CI_Model {
          $insert_id = $this->db->insert_id();
         if ($this->db->affected_rows() > 0) {
              $data2 = array(
-            'user_id' => $insert_id,
+            'role' => 4,
             'school_id' => $sid,
+            'user_sid' => $insert_id,
+            'classes_id	' => $cid,
             'created_at'=>date('Y-m-d')
-            //'role' => $role2
         );
         $this->db->insert('student', $data2);
             return true;
@@ -176,16 +197,28 @@ class School_model extends CI_Model {
     }
     
     public function get_school_id($uid) { //get school by founder id
-        echo $uid; exit;
+        // echo $uid; exit;
         $this->db->where('user_id',$uid);
         $query = $this->db->get('school')->row();
         return $query;
     }
-    
+  
+	 //get code used for student by founder id
     public function get_student($sid){
+		$this->db->select("school.school_name, classes.class_name, users.username, users.email, users.mobile, users.image, users.join_date");
         $this->db->from('users');
-        $this->db->join('student', 'student.user_id = users.id','left');
-        $this->db->where('school_id',$sid);
+        $this->db->join('student', 'student.user_sid = users.id','left');
+        $this->db->join('school', 'school.id = student.school_id','left');
+        $this->db->join('classes', 'classes.id = student.classes_id','left');
+        $this->db->where('student.school_id',$sid);
+        $query = $this->db->get();
+        return $query->result();  
+    }
+	
+	public function get_classes($uid){
+        $this->db->from('users');
+        $this->db->join('classes', 'classes.user_id = users.id','left');
+        $this->db->where('classes.user_id',$uid);
         $query = $this->db->get();
         return $query->result();  
     }

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card">
-                <div class="card-heading card-default">Add Class</div>
+                <div class="card-heading card-default">Add School</div>
                 <div class="card-block">
                     <form role="form" method="post" action="<?php echo base_url('school/add_school'); ?>" enctype="multipart/form-data">
                         <div class="form-group ">
@@ -14,7 +14,7 @@
                             <label>Upload image</label>
                             <input type="file" name="image" class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-sm btn-primary AddSchool float-right">Add School</button>
+                        <button type="submit" class="btn btn-sm btn-primary AddSchool float-right">Submit</button>
                     </form>
                 </div>
             </div>
@@ -23,7 +23,7 @@
          <div class="col-md-8">
             <div class="card">
                 <div class="card-heading card-default">
-                    Category
+                    School List
                 </div>
                 <div class="card-block">
                     <table id="datatable" class="table table-striped dt-responsive nowrap">
@@ -32,7 +32,7 @@
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Image</th>
-                                <th>Create Date</th>
+                                <th>Created Date</th>
                             </tr>
                         </thead>
 
@@ -43,9 +43,9 @@
                                 ?>
                                 <tr>
                                     <td><?php echo $count++; ?></td>
-                                    <td class="lname<?php echo $sch->id; ?>"><?php echo $sch->school_name; ?></td>
-                                    <td class="ladd<?php echo $sch->id; ?>"><img src="<?php echo base_url('images') . "/" . $sch->image; ?>" height="150" width="150"></td>
-                                    <td><button class="btn btn-primary edit-btn" data-id="<?php echo $sch->id; ?>">Edit</button></td>
+                                    <td><?php echo $sch->school_name; ?></td>
+                                    <td><img src="<?php echo base_url('images') . "/" . $sch->image; ?>" height="50" width="50"></td>
+                                    <td><?php echo $sch->school_session; ?></td>
                                 </tr>
                             <?php } ?>
 

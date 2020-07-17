@@ -2,14 +2,14 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card">
-                <div class="card-heading card-default">Add subject</div>
+                <div class="card-heading card-default">Add Subject</div>
                 <div class="card-block">
                     <form role="form" method="post" action="<?php echo base_url('Dashboard/add_subject'); ?>" enctype="multipart/form-data">
                         <div class="form-group ">
                             <label>Subject Name</label>
                             <input type="text" name="subject_name" placeholder="Enter Subject Name" class="form-control" id="shool_name" required="true">
                         </div>
-                        <button type="submit" class="btn btn-sm btn-primary AddSchool float-right">Add Subject</button>
+                        <button type="submit" class="btn btn-sm btn-primary AddSchool float-right">Submit</button>
                     </form>
                 </div>
             </div>
@@ -18,7 +18,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-heading card-default">
-                    Category
+                    Subject List
                 </div>
                 <div class="card-block">
                     <table id="datatable" class="table table-striped dt-responsive nowrap">
@@ -26,7 +26,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Create Date</th>
+                                <th>Created Date</th>
                             </tr>
                         </thead>
 
@@ -38,9 +38,8 @@
                                 ?>
                                 <tr>
                                     <td><?php echo $count++; ?></td>
-                                    <td class="lname<?php echo $sub->id; ?>"><?php echo $sub->subject_name; ?></td>
-                                    <td class="lname<?php echo $sub->id; ?>"><?php echo $sub->create_date; ?></td>
-                                    <td><button class="btn btn-primary edit-btn" data-id="<?php echo $sub->id; ?>">Edit</button></td>
+                                    <td><?php echo $sub->subject_name; ?></td>
+                                    <td><?php echo $sub->create_date; ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody> 
